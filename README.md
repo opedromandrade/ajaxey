@@ -41,7 +41,7 @@ Scripts can be run individually, pick what you need.
 6. `PS > Restart-Computer`
 
 ## WARNING
-These scripts come with absolutly no kind of warranty or support. It may bork your system. Use it to your own fruitions, but caution is advised.
+These scripts come with absolutly no kind of warranty or support. It may bork your system. Use it to your own fruition, but caution is advised.
 
 ## License
 
