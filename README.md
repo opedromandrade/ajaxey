@@ -1,6 +1,6 @@
 # Ajaxey
 
-This is a "fork" of the amazing work [[W4RH4WK]](https://github.com/W4RH4WK/Debloat-Windows-10) has made over the years. It has the same clear goal: to clean the sh1t out of Microsoft Windows of its unneseaseary apps, tweaking it to the end **my needs**. 
+This is a "fork" of the amazing work [[W4RH4WK]](https://github.com/W4RH4WK/Debloat-Windows-10) has made over the years. It has the same clear goal: to clean the sh1t out of Microsoft Windows of its unneseaseary apps, **tweaking it for my needs**. 
 Hence the alusion to popular window cleaner Aj4x. :]
 
 ## How does it work
