@@ -8,7 +8,7 @@ Basicaly you just run a script on PowerShell, and voilá! Got your Windows clean
 
 **A COUPLE OF NOTES**
 1. Mind you that you need to make sure it doesn't delete anything you don't want to;
-2. I only use [[like W4RH4WK]](https://github.com/W4RH4WK/Debloat-Windows-10) Microsoft Windows Pro 64-bit. "Home Edition and different languages are not supported".
+2. I only use [[like W4RH4WK]](https://github.com/W4RH4WK/Debloat-Windows-10) Microsoft Windows Pro 64-bit. "Home Edition and different languages may not be supported".
 
 ## Download Latest Version
 
