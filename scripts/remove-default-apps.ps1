@@ -12,19 +12,23 @@ do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 Write-Output "Uninstalling default apps"
 $apps = @(
     # default Windows 10 apps
+	"Microsoft.549981C3F5F10" #Cortana
     "Microsoft.3DBuilder"
+    "Microsoft.Advertising.Xaml"
     "Microsoft.Appconnector"
     "Microsoft.BingFinance"
     "Microsoft.BingNews"
     "Microsoft.BingSports"
     "Microsoft.BingTranslator"
-    "Microsoft.BingWeather"
+    #"Microsoft.BingWeather"
     #"Microsoft.FreshPaint"
-    #"Microsoft.GamingServices"
+    "Microsoft.GamingServices"
     "Microsoft.Microsoft3DViewer"
+    "Microsoft.WindowsFeedbackHub"
     "Microsoft.MicrosoftOfficeHub"
+    "Microsoft.MixedReality.Portal"
     "Microsoft.MicrosoftPowerBIForWindows"
-    "Microsoft.MicrosoftSolitaireCollection"
+    #"Microsoft.MicrosoftSolitaireCollection"
     "Microsoft.MicrosoftStickyNotes"
     "Microsoft.MinecraftUWP"
     "Microsoft.NetworkSpeedTest"
@@ -43,14 +47,18 @@ $apps = @(
     "Microsoft.WindowsPhone"
     "Microsoft.WindowsSoundRecorder"
     #"Microsoft.WindowsStore"   # can't be re-installed
-    #"Microsoft.Xbox.TCUI"
-    #"Microsoft.XboxApp"
-    #"Microsoft.XboxGameOverlay"
-    #"Microsoft.XboxGamingOverlay"
-    #"Microsoft.XboxSpeechToTextOverlay"
+    "Microsoft.Xbox.TCUI"
+    "Microsoft.XboxApp"
+    "Microsoft.XboxGameOverlay"
+    "Microsoft.XboxGamingOverlay"
+    "Microsoft.XboxSpeechToTextOverlay"
     "Microsoft.YourPhone"
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
+    "Microsoft.Windows.CloudExperienceHost"
+    "Microsoft.Windows.ContentDeliveryManager"
+    "Microsoft.Windows.PeopleExperienceHost"
+    "Microsoft.XboxGameCallableUI"
 
     # Threshold 2 apps
     "Microsoft.CommsPhone"
@@ -75,7 +83,7 @@ $apps = @(
     # Redstone 5 apps
     "Microsoft.MixedReality.Portal"
     "Microsoft.ScreenSketch"
-    #"Microsoft.XboxGamingOverlay"
+    "Microsoft.XboxGamingOverlay"
     "Microsoft.YourPhone"
 
     # non-Microsoft
@@ -96,7 +104,6 @@ $apps = @(
     "D5EA27B7.Duolingo-LearnLanguagesforFree"
     "DB6EA5DB.CyberLinkMediaSuiteEssentials"
     "DolbyLaboratories.DolbyAccess"
-    "DolbyLaboratories.DolbyAccess"
     "Drawboard.DrawboardPDF"
     "Facebook.Facebook"
     "Fitbit.FitbitCoach"
@@ -110,7 +117,7 @@ $apps = @(
     "ShazamEntertainmentLtd.Shazam"
     "SlingTVLLC.SlingTV"
     "SpotifyAB.SpotifyMusic"
-    #"TheNewYorkTimes.NYTCrossword"
+    "TheNewYorkTimes.NYTCrossword"
     "ThumbmunkeysLtd.PhototasticCollage"
     "TuneIn.TuneInRadio"
     "WinZipComputing.WinZipUniversal"
@@ -161,14 +168,14 @@ $cdm = @(
     "SystemPaneSuggestionsEnabled"
 )
 
-force-mkdir "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"
+New-FolderForced -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"
 foreach ($key in $cdm) {
-    Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" $key 0
+    Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" $key 0
 }
 
-force-mkdir "HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore"
-Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore" "AutoDownload" 2
+New-FolderForced -Path "HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore"
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore" "AutoDownload" 2
 
 # Prevents "Suggested Applications" returning
-force-mkdir "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent"
-Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" "DisableWindowsConsumerFeatures" 1
+New-FolderForced -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent"
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" "DisableWindowsConsumerFeatures" 1
